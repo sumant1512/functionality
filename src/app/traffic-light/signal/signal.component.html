@@ -1,0 +1,20 @@
+<div class="trafficlight">
+  <div
+    [ngClass]="{
+      'animate-start-light': signalStatus === signalStatusEnum.Closed
+    }"
+    class="red"
+  ></div>
+  <div
+    [ngClass]="{
+      'animate-start-light': signalStatus === signalStatusEnum.Ready
+    }"
+    class="yellow"
+  ></div>
+  <div
+    [ngClass]="{
+      'animate-start-light': signalStatus === signalStatusEnum.Active
+    }"
+    class="green"
+  ></div>
+</div>

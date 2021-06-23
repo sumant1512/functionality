@@ -1,1 +1,29 @@
-<p>traffic-light works!</p>
+<div class="text-center">
+  <button
+    class="mr-2"
+    mat-raised-button
+    color="accent"
+    (click)="configureTrafficDetailsPopupOpen()"
+  >
+    Configure Traffic Details
+  </button>
+  <button class="mr-2" mat-raised-button color="warn" (click)="restart()">
+    Restart
+  </button>
+  <button class="mr-2" mat-raised-button color="warn" (click)="stopSignal()">
+    Stop Signal
+  </button>
+</div>
+<mat-grid-list cols="4" rowHeight="213px">
+  <mat-grid-tile
+    *ngFor="let signal of signals"
+    [colspan]="signal.cols"
+    [rowspan]="signal.rows"
+    [style.background]="signal.color"
+  >
+    <app-signal
+      class="rotate-signal"
+      [signalStatus]="signal.signalStatus"
+    ></app-signal>
+  </mat-grid-tile>
+</mat-grid-list>

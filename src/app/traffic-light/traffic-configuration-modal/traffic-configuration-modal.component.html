@@ -1,0 +1,57 @@
+<form [formGroup]="trafficConfigurationForm">
+  <div class="form-group">
+    <label>Traffic change duration</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="trafficChangeTime"
+      placeholder="Traffic change duration"
+    />
+  </div>
+  <div class="form-group">
+    <label>Active signal</label>
+    <select formControlName="activeSignal" class="form-control">
+      <option
+        *ngFor="let direction of directionList"
+        [value]="direction.direction"
+      >
+        {{ direction.label }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Next active signal</label>
+    <select formControlName="nextActiveSignal" class="form-control">
+      <option
+        *ngFor="let direction of directionList"
+        [value]="direction.direction"
+      >
+        {{ direction.label }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Signal direction</label>
+    <select formControlName="signalDirection" class="form-control">
+      <option
+        *ngFor="let direction of signalDirectionList"
+        [value]="direction.direction"
+      >
+        {{ direction.label }}
+      </option>
+    </select>
+  </div>
+  <div class="text-right">
+    <button
+      mat-raised-button
+      color="accent"
+      [mat-dialog-close]="trafficConfigurationForm"
+      cdkFocusInitial
+    >
+      Update
+    </button>
+    <button class="ml-2" mat-raised-button color="warn" (click)="closeDialog()">
+      Close
+    </button>
+  </div>
+</form>

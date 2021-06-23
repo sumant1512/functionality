@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { DummyPageComponent } from "./dummy-page/dummy-page.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'traffic-light', pathMatch: 'full' },
+  { path: "", redirectTo: "traffic-light", pathMatch: "full" },
+  { path: "dummy-page", component: DummyPageComponent },
   {
-    path: 'traffic-light',
+    path: "traffic-light",
     loadChildren: () =>
-      import('./traffic-light/traffic-light.module').then(
+      import("./traffic-light/traffic-light.module").then(
         (m) => m.TrafficLightModule
       ),
   },
